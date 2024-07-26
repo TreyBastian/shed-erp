@@ -26,7 +26,11 @@ class UsersResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
-            ->columns([TextColumn::make('name'), TextColumn::make('email')])
+            ->columns([
+                TextColumn::make('name'),
+                TextColumn::make('email'),
+                TextColumn::make('projects_count')->counts('projects')->label('Projects'),
+            ])
             ->filters([
                 //
             ])
